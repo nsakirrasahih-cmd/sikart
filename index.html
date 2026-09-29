@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - SIKART</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SECTION 1: FORM LOGIN (Muncul jika belum login) -->
+  <div id="loginSection" class="login-container">
+    <div class="login-card">
+      <h2>SIKART Login</h2>
+      <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Pilih atau ketik akun untuk masuk:</p>
+      
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="username" class="form-control" placeholder="Contoh: bendahara / ketua / sekretaris / warga" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" class="form-control" value="123" required>
+        </div>
+        <button type="submit" class="btn-login">Masuk ke SIKART</button>
+      </form>
+
+      <!-- Petunjuk Akun DUMMY -->
+      <div class="account-hint">
+        <b>Daftar Akun Tes:</b><br>
+        • Username: <code>bendahara</code> (Role: Bendahara)<br>
+        • Username: <code>ketua</code> (Role: Ketua RT)<br>
+        • Username: <code>sekretaris</code> (Role: Sekretaris)<br>
+        • Username: <code>warga</code> (Role: Warga)
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: DASHBOARD UTAMA (Muncul setelah login) -->
+  <div id="dashboardSection" class="dashboard-container" style="display: none;">
+    
+    <!-- Top Header -->
+    <div class="welcome-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <h1 id="welcomeUser">Selamat datang, User</h1>
+          <p>Dashboard keuangan RT</p>
+          <span id="userRoleBadge" class="badge-role">Role: -</span>
+        </div>
+        <button onclick="logout()" class="btn-logout">Keluar</button>
+      </div>
+    </div>
+
+    <!-- Grid Menu Navigasi -->
+    <div class="menu-grid">
+      <a href="#" class="menu-card" id="menuDashboard">🏠 Dashboard</a>
+      <a href="#" class="menu-card" id="menuPemasukan">💰 Pemasukan</a>
+      <a href="#" class="menu-card" id="menuPengeluaran">💸 Pengeluaran</a>
+      <a href="#" class="menu-card" id="menuRiwayat">📋 Riwayat Transaksi</a>
+
+      <a href="#" class="menu-card" id="menuLaporanBulanan">📅 Laporan Bulanan</a>
+      <a href="#" class="menu-card" id="menuLaporanTahunan">📊 Laporan Tahunan</a>
+      <a href="#" class="menu-card" id="menuBukti">📎 Bukti Transaksi</a>
+      <a href="#" class="menu-card" id="menuRiwayatPerubahan">🕒 Riwayat Perubahan</a>
+
+      <a href="#" class="menu-card full-width" id="menuDataWarga">👥 Data Warga</a>
+      <a href="#" class="menu-card full-width" id="menuUsulanWarga">💡 Usulan Warga</a>
+    </div>
+
+    <!-- Contoh Area Simulasi Tabel Transaksi (Untuk Cek Edit/Hapus) -->
+    <div class="card-table">
+      <h3>Simulasi Tabel Transaksi</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Keterangan</th>
+            <th>Nominal</th>
+            <!-- Kolom aksi hanya muncul untuk Bendahara -->
+            <th class="action-col">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Iuran Kas Warga</td>
+            <td>Rp 500.000</td>
+            <td class="action-col">
+              <button class="btn-action edit">Edit</button>
+              <button class="btn-action delete">Hapus</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
